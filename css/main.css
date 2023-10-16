@@ -148,14 +148,15 @@ a {
 }
 
 ul.tags {
-    display: block;
+    display: flex;
 		margin-bottom: 1vw;
+		justify-content: center;
+    align-items: center;
 }
 
 ul.tags::before {
     content: 'Tags:';
 		position: relative;
-		top: .2em;
 }
 
 ul.tags::before,
