@@ -1,0 +1,326 @@
+/* READ ME */
+/* If you haven't worked with CSS or HTML before, please copy this file before doing any changes! If you only want to do minor changes, e.g. change the color scheme or the fonts, you can do so in the variable part which starts around line 50 */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
+
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    color: inherit;
+    text-decoration: inherit;
+	vertical-align: middle;
+    overflow-x: hidden;
+}
+
+html {
+	font-size: max(1vw,12px);
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Edge */
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+
+	--nav-height: max(7vh, calc(12px + 1rem));
+	--footer-height: 2rem;
+}
+
+/*
+COLOR DEFINiTION
+*/
+
+html {
+    --font-color: #000;
+	--background-color: #fff;
+
+    --accent-color: darkcyan;
+    --translucent-accent-color: rgba(0,139,139,0.5);
+		--shadow: rgba(0,0,0,.25);
+}
+
+/* dark mode */
+@media screen and (prefers-color-scheme: dark) {
+	html {
+		--font-color: #fff;
+		--background-color: #333;
+		--shadow: rgba(0,0,0,.5);
+    }
+}
+
+
+.blue {
+    --accent-color: #33f;
+    --translucent-accent-color: rgba(51,51,255,0.5);
+}
+
+.green {
+    --accent-color: #0f0;
+    --translucent-accent-color: rgba(0,255,0,0.5);
+}
+
+.yellow {
+    --accent-color: #fd0;
+    --translucent-accent-color: rgba(255,221,0,0.5);
+}
+
+.orange {
+    --accent-color: #f80;
+    --translucent-accent-color: rgba(255,136,0,0.5);
+}
+
+.red {
+    --accent-color: #f00;
+    --translucent-accent-color: rgba(255,0,0,0.5);
+}
+
+.purple {
+    --accent-color: #f0f;
+    --translucent-accent-color: rgba(255,0,255,0.5);
+}
+
+/*
+END OF THE COLOR DEFINTION PART
+*/
+
+html::-webkit-scrollbar {
+	 display: none; /* Chrome, Safari, Opera */
+}
+
+body {
+	line-height: 1;
+	overflow-x: hidden;
+	color: var(--font-color);
+	background-color: var(--background-color);
+	font-family: var(--text-font);
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    width: 70vw;
+		min-height: calc(100vh - 1rem - var(--nav-height));
+    padding: 1rem 15vw 0;
+		margin-top: var(--nav-height);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.card {
+    display: inline-flex;
+    position: relative;
+
+		--size: 14vw;
+    width: var(--size);
+		height: calc(2 * var(--size) / 3);
+		padding-top: calc(var(--size) / 3);
+    margin: 1vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+		font-weight: 700;
+
+    border-radius: 1.5rem;
+    box-shadow: 0 0 1rem var(--shadow),-.5rem -.5rem 0 var(--accent-color);
+}
+
+.card svg {
+	aspect-ratio: 1/1;
+	--size: 3em;
+	width: var(--size);
+	position: absolute;
+	left: calc(50% - var(--size) / 2);
+	top: calc(33% - var(--size) / 2);
+	fill: var(--accent-color);
+}
+
+ul.tags {
+    display: block;
+		margin-bottom: 1vw;
+}
+
+ul.tags::before {
+    content: 'Tags:';
+		position: relative;
+		top: .2em;
+}
+
+ul.tags::before,
+ul.tags li {
+    display: inline-flex;
+    font-size: 1.5rem;
+
+    padding: .5em;
+    border-radius: 1.25em;
+    margin: .25em;
+
+    color: var(--background-color);
+    background-color: var(--accent-color);
+
+		transition: all .25s;
+}
+
+ul.tags li::before {
+	content: '#';
+}
+
+ul.tags li:hover {
+	color: var(--accent-color);
+	background-color: var(--background-color);
+	box-shadow: inset 0px 0px 0px 2px var(--accent-color);
+}
+
+.add {
+	--size: 4rem;
+	font-size: var(--size);
+	font-weight: 100;
+
+	aspect-ratio: 1/1;
+	width: var(--size);
+
+	position: fixed;
+	right: 1.5rem;
+	bottom: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	color: var(--background-color);
+	background-color: var(--accent-color);
+	border-radius: calc(var(--size) / 2);
+	box-shadow: 0 0 1rem var(--shadow);
+
+	transition: all .25s;
+	overflow: hidden;
+}
+
+.add:hover {
+	color: var(--accent-color);
+	background-color: var(--background-color);
+}
+
+@media screen and (max-width: 1080px) {
+	.wrapper {
+		width: 90vw;
+		padding: 1rem 5vw 0;
+	}
+
+    .card {
+        --size: 26vw;
+    }
+}
+
+@media screen and (max-width: 512px) {
+	.wrapper {
+		width: 98vw;
+		padding: 1rem 1vw 0;
+	}
+
+  .card {
+    --size: 40vw;
+    margin: 3vw;
+  }
+
+	ul.tags {
+		margin-bottom: 3vw;
+	}
+}
+
+nav {
+	--menu-size: calc(var(--nav-height) - 1rem);
+
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: var(--nav-height);
+
+	background-color: var(--background-color);
+	box-shadow: 0 0 1rem var(--shadow);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-size: calc(var(--nav-height) - 1rem);
+	font-weight: 900;
+}
+
+.menu {
+	aspect-ratio: 1/1;
+	height: var(--menu-size);
+
+	background-color: var(--background-color);
+	box-shadow: 0 0 .5rem var(--shadow);
+	border-radius: calc(var(--menu-size) / 5);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	left: .5rem;
+	top: .5rem;
+
+	overflow: hidden;
+}
+
+footer {
+	min-height: var(--footer-height);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--accent-color);
+	color: var(--background-color);
+}
+
+@media screen and (max-width: 1080px) {
+	html {
+		--nav-height: max(7vh, calc(12px + 2rem));
+	}
+
+	nav {
+		--menu-size: calc(var(--nav-height) - 1rem);
+		font-size: calc(var(--nav-height) - 2rem);
+	}
+
+	.menu {
+		font-size: calc(var(--nav-height) - 1rem);
+		left: .5rem;
+		top: .5rem;
+	}
+}
+
+@media screen and (max-width: 512px) {
+	html {
+		--nav-height: max(7vh, calc(12px + 3rem));
+	}
+
+	nav {
+		--menu-size: calc(var(--nav-height) - 1rem);
+		font-size: calc(var(--nav-height) - 3rem);
+		padding-left: calc(var(--nav-height) / 2);
+	}
+
+	.menu {
+		font-size: calc(var(--nav-height) - 1rem);
+		left: .5rem;
+		top: .5rem;
+	}
+}

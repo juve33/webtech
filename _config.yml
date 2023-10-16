@@ -1,0 +1,13 @@
+# Site settings
+url: "https://rheinos-bonn.de" # the base hostname & protocol for your site
+
+# Plugins
+gems:
+  - jemoji
+
+# Outputting
+permalink: /blog/:year/:month/:day/:title.html
+
+# Github Flavoured Markdown
+kramdown:
+  input: GFM
