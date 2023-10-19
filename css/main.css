@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap');
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -27,10 +27,10 @@ html {
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* Edge */
 
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 
-	--header-height: max(7vmin, calc(12px + 1rem));
+	--header-height: max(6.5vmin, calc(12px + 1rem));
 	--footer-height: 2rem;
 }
 
@@ -296,13 +296,13 @@ footer {
 
 @media screen and (max-width: 1080px) {
 	html {
-		--header-height: max(11vmin, calc(12px + 2rem));
+		--header-height: max(10vmin, calc(12px + 2rem));
 	}
 
 	header {
 		--menu-size: calc(var(--header-height) - 1rem);
 		font-size: calc(var(--header-height) - 2rem);
-		padding-left: calc(var(--header-height) / 3);
+		padding-left: calc(var(--header-height) * .4);
 	}
 
 	.menu {
